@@ -20,6 +20,12 @@ else
 	MOVE_TO_THEOS_PATH = $(THEOS)/lib/
 endif
 
+COMET_INSTALL_PATH = @loader_path/.jbroot/Library/Frameworks
+
+THEOS_PACKAGE_SCHEME = roothide
+XCODE_SCHEME = RootHide
+RootHide_XCODE_SCHEME = $(XCODE_SCHEME)
+
 include $(THEOS)/makefiles/common.mk
 
 XCODEPROJ_NAME = Comet
@@ -27,6 +33,8 @@ Comet_XCODEFLAGS += LD_DYLIB_INSTALL_NAME=$(COMET_INSTALL_PATH)/Comet.framework/
 Comet_XCODEFLAGS += DYLIB_INSTALL_NAME_BASE=$(COMET_INSTALL_PATH)/Comet.framework/Comet
 Comet_XCODEFLAGS += DWARF_DSYM_FOLDER_PATH=$(THEOS_OBJ_DIR)/dSYMs
 Comet_XCODEFLAGS += CONFIGURATION_BUILD_DIR=$(THEOS_OBJ_DIR)/
+
+
 
 include $(THEOS)/makefiles/xcodeproj.mk
 
